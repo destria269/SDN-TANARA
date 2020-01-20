@@ -1,0 +1,27 @@
+<?php
+	include'../koneksi.php';
+
+	if (isset($_POST['tambah'])) {
+		$kd_mapel = mysqli_real_escape_string($koneksi, $_POST['kd_mapel']));
+		$nis=$_POST['nis'];
+		$kd_ruang = qli_real_escape_string($koneksi, $_POST['kd_ruang']));
+		$n_uh=$_POST['n_uh'];
+		$n_uts=$_POST['n_uts'];
+		$n_uas=$_POST['n_uas'];
+		$n_akhir=$_POST['n_akhir'];
+		$ket=$_POST['ket'];
+		$praktek=$_POST['praktek'];
+		$keterangan=$_POST['keterangan'];
+
+
+		mysqli_query($koneksi,"INSERT into nilai (kd_mapel, nis, kd_ruang, n_uh, n_uts, n_uas, n_akhir, ket, praktek, keterangan) values('$kd_mapel','$nis','$kd_ruang','$n_uh','$n_uts','$n_uas','$n_akhir','$ket','$praktek','$keterangan')");
+
+
+		echo"<script> alert('profil guru berhasil disimpan');
+				window.location.href='daftar_nilai.php';
+			</script>";
+	}
+?>
+
+
+
